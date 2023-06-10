@@ -8,6 +8,8 @@ import com.thiagobs.commerce.entities.Order;
 import com.thiagobs.commerce.entities.OrderItem;
 import com.thiagobs.commerce.entities.OrderStatus;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class OrderDTO {
 
 	private Long id;
@@ -20,6 +22,7 @@ public class OrderDTO {
 	
 	private PaymentDTO payment;
 	
+	@NotEmpty(message = "A lista de items não pode estar vazia")
 	private List<OrderItemDTO > items = new ArrayList<>();
 	
 
