@@ -3,7 +3,7 @@ package com.thiagobs.commerce.entities;
 public enum OrderStatus {
 	
 	WAINTING_PAYMENT,
-	PAIND,
+	PAID,
 	SHIPPED,
 	DELIVERED,
 	CANCELED

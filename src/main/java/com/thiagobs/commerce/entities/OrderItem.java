@@ -1,7 +1,5 @@
 package com.thiagobs.commerce.entities;
 
-import java.math.BigInteger;
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -13,14 +11,14 @@ public class OrderItem {
 	@EmbeddedId
 	private OrderItemPK id = new OrderItemPK();
 	
-	private BigInteger quantity;
+	private Integer quantity;
 	
 	private Double price;
 	
 	public OrderItem() {
 	}
 
-	public OrderItem(Order order, Product product, BigInteger quantity, Double price) {
+	public OrderItem(Order order, Product product, Integer quantity, Double price) {
 
 		id.setOrder(order);
 		id.setProduct(product);
@@ -45,11 +43,11 @@ public class OrderItem {
 	}
 	
 
-	public BigInteger getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(BigInteger quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
