@@ -31,13 +31,19 @@ public class OrderService {
 
 	@Autowired
 	OrderItemRepository orderItemRepository;
+	
+	@Autowired
+	AuthService authService;
 
 	@Transactional(readOnly = true)
 	public OrderDTO findById(Long id) {
 		Order order = repository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
+		
+		authService.verififyRoleAndClient(order.getClient().getId());
 
 		OrderDTO dto = new OrderDTO(order);
+		
 		return dto;
 
 	}
